@@ -50,6 +50,8 @@ let effectComponent() =
         |> Array.map (fun r -> li [Key r] [str r])
 
     div [ClassName "content"] [
-        select [ Value selectedOrg; OnChange onChange ] options
+        div [ClassName "select"] [
+            select [ Value selectedOrg; OnChange onChange ] options
+        ]
         ul [] repoListItems
     ]
