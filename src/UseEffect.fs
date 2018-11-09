@@ -7,6 +7,7 @@ open Fable.Import.React
 open ReactHooksSample.Bindings
 open Fable.PowerPack
 open Thoth.Json
+open System
 
 let decodeRepoItem =
     Decode.field "name" Decode.string
@@ -46,7 +47,7 @@ let effectComponent() =
     
     let repoListItems =
         repos
-        |> Array.sort
+        |> Array.sortWith (fun a b -> String.Compare(a,b, System.StringComparison.OrdinalIgnoreCase))
         |> Array.map (fun r -> li [Key r] [str r])
 
     div [ClassName "content"] [
