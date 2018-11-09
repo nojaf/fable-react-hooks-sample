@@ -1,0 +1,3 @@
+source https://www.nuget.org/api/v2
+clitool dotnet-fable
+nuget Fable.React 5.0.0-alpha-001 alpha

@@ -1,0 +1,18 @@
+{
+  "name": "fable-react-hooks-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "nojaf <florian.verdonck@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "fable-loader": "^2.0.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
