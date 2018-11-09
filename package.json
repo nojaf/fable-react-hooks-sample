@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack -p",
-    "postbuild": "gh-pages -d src/public"
+    "postbuild": "gh-pages -d public"
   },
   "dependencies": {
     "react": "16.7.0-alpha.0",

@@ -7,7 +7,7 @@ open ReactHooksSample.Bindings
 
 
 let app () =
-    let (page, setPage) = useState "useState()"
+    let (page, setPage) = useState "useEffect()"
     
     let tabs =
         [ "useState()" ; "useReducer()" ; "useEffect()" ]
@@ -21,6 +21,7 @@ let app () =
         match page with
         | "useState()" -> ofFunction UseState.appComponent () []
         | "useReducer()" -> ofFunction UseReducer.reducerComponent () []
+        | "useEffect()" -> ofFunction UseEffect.effectComponent () []
         | _ -> str "other page"
     
     div [] [
