@@ -52,8 +52,8 @@ let appComponent() =
                 
             let key = sprintf "todo_%i" idx
             
-            div [ Key key; OnClick(fun _ -> toggleComplete idx); Style style ] [
-                label [ClassName "checkbox"] [
+            div [ Key key; OnClick(fun _ -> toggleComplete idx) ] [
+                label [ClassName "checkbox"; Style style] [
                     input [Type "checkbox"; Checked todo.Complete; OnChange(fun _ ->  toggleComplete idx)]
                     str todo.Text
                 ]
@@ -69,8 +69,5 @@ let appComponent() =
     div [] [
         h1 [ Class "title is-4" ] [ str "Todos" ]
         ofFunction formComponent { OnSubmit = onSubmit } []
-        div [ClassName "notification"] [
-            ofList renderTodos
-        ]
-        
+        div [ClassName "notification"] renderTodos
     ]
