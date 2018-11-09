@@ -20,6 +20,7 @@ let app () =
     let activePage =
         match page with
         | "useState()" -> ofFunction UseState.appComponent () []
+        | "useReducer()" -> ofFunction UseReducer.reducerComponent () []
         | _ -> str "other page"
     
     div [] [
