@@ -7,7 +7,7 @@ open ReactHooksSample.Bindings
 
 
 let app () =
-    let (page, setPage) = useState "useEffect()"
+    let (page, setPage) = useState "useState()"
     
     let tabs =
         [ "useState()" ; "useReducer()" ; "useEffect()" ]
