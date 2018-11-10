@@ -12,6 +12,7 @@ type Msg =
 type Model = { Value: int }
 
 let intialState = { Value = 0}
+
 let update model msg =
     match msg with
     | Increase -> { model with Value = model.Value + 1}

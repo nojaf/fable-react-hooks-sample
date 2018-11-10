@@ -35,12 +35,12 @@ let effectComponent() =
         |> (@) (List.singleton (option [Value ""; Key "empty"] []))
 
     let (selectedOrg, setOrganisation) = useState ("")
-    let (repos, setRepos) = useState([||])
+    let (repos, setRepos) = useState(Array.empty)
     let onChange (ev : FormEvent) = setOrganisation (ev.Value)
 
     useEffect (fun () ->
         match System.String.IsNullOrWhiteSpace(selectedOrg) with
-        | true -> ()
+        | true -> setRepos Array.empty
         | false -> loadRepos setRepos selectedOrg
         |> U2.Case1
     ) [| selectedOrg |]
