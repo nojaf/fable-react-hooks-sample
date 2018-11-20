@@ -26,7 +26,7 @@ let formComponent (props : FormProps) =
         props.OnSubmit(value)
         resetValue()
 
-    form [ OnSubmit onSubmit;  ] [
+    form [ OnSubmit onSubmit; ] [
         input [ Value value; OnChange onChange; Placeholder "Enter todo"; ClassName "input" ]
     ]
 
@@ -49,12 +49,12 @@ let appComponent() =
             let style =
                 CSSProp.TextDecoration(if todo.Complete then "line-through" else "")
                 |> List.singleton
-                
+
             let key = sprintf "todo_%i" idx
-            
+
             div [ Key key; OnClick(fun _ -> toggleComplete idx) ] [
-                label [ClassName "checkbox"; Style style] [
-                    input [Type "checkbox"; Checked todo.Complete; OnChange(fun _ ->  toggleComplete idx)]
+                label [ ClassName "checkbox"; Style style ] [
+                    input [ Type "checkbox"; Checked todo.Complete; OnChange (fun _ -> toggleComplete idx) ]
                     str todo.Text
                 ]
             ]
@@ -69,5 +69,5 @@ let appComponent() =
     div [] [
         h1 [ Class "title is-4" ] [ str "Todos" ]
         ofFunction formComponent { OnSubmit = onSubmit } []
-        div [ClassName "notification"] renderTodos
+        div [ ClassName "notification" ] renderTodos
     ]

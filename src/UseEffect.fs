@@ -4,14 +4,14 @@ open Fable.Core
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
 open Fable.Import.React
-open ReactHooksSample.Bindings
 open Fable.PowerPack
-open Thoth.Json
+open ReactHooksSample.Bindings
 open System
+open Thoth.Json
 
 let decodeRepoItem =
     Decode.field "name" Decode.string
-    
+
 let decodeResonse = Decode.array decodeRepoItem
 
 let githubUsers =
@@ -32,10 +32,10 @@ let effectComponent() =
         |> List.map (fun name ->
             option [ Value name; Key name ] [ str name ]
         )
-        |> (@) (List.singleton (option [Value ""; Key "empty"] []))
+        |> (@) (List.singleton (option [ Value ""; Key "empty" ] []))
 
     let (selectedOrg, setOrganisation) = useState ("")
-    let (repos, setRepos) = useState(Array.empty)
+    let (repos, setRepos) = useState (Array.empty)
     let onChange (ev : FormEvent) = setOrganisation (ev.Value)
 
     useEffect (fun () ->
@@ -44,14 +44,14 @@ let effectComponent() =
         | false -> loadRepos setRepos selectedOrg
         |> U2.Case1
     ) [| selectedOrg |]
-    
+
     let repoListItems =
         repos
-        |> Array.sortWith (fun a b -> String.Compare(a,b, System.StringComparison.OrdinalIgnoreCase))
-        |> Array.map (fun r -> li [Key r] [str r])
+        |> Array.sortWith (fun a b -> String.Compare(a, b, System.StringComparison.OrdinalIgnoreCase))
+        |> Array.map (fun r -> li [ Key r ] [ str r ])
 
-    div [ClassName "content"] [
-        div [ClassName "select"] [
+    div [ ClassName "content" ] [
+        div [ ClassName "select" ] [
             select [ Value selectedOrg; OnChange onChange ] options
         ]
         ul [] repoListItems
