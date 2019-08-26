@@ -12,6 +12,4 @@ Source code for [blogpost on nojaf.com](https://blog.nojaf.com/react-hooks-in-fa
 
 - `yarn install`
 
-- `cd src`
-
-- `dotnet fable webpack-dev-server`
+- `yarn webpack-dev-server`

@@ -1,4 +1,6 @@
 source https://www.nuget.org/api/v2
-clitool dotnet-fable
-nuget Fable.React 5.0.0-alpha-001 alpha
-nuget Fable.PowerPack 2.0.1
+
+nuget Fable.Core ~> 3
+nuget Fable.React ~> 5
+nuget Fable.Fetch
+nuget Thoth.Json

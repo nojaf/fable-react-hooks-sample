@@ -1,13 +1,12 @@
 module ReactHooksSample.UseEffect
 
 open Fable.Core
-open Fable.Helpers.React
-open Fable.Helpers.React.Props
-open Fable.Import.React
-open Fable.PowerPack
+open Fable.React
+open Fable.React.Props
 open ReactHooksSample.Bindings
 open System
 open Thoth.Json
+open Browser.Types
 
 let decodeRepoItem =
     Decode.field "name" Decode.string
@@ -36,7 +35,7 @@ let effectComponent() =
 
     let (selectedOrg, setOrganisation) = useState ("")
     let (repos, setRepos) = useState (Array.empty)
-    let onChange (ev : FormEvent) = setOrganisation (ev.Value)
+    let onChange (ev : Event) = setOrganisation (ev.Value)
 
     useEffect (fun () ->
         match System.String.IsNullOrWhiteSpace(selectedOrg) with
