@@ -1,14 +1,15 @@
 module ReactHooksSample.UseState
 
 open Fable.Core.JsInterop
-open Fable.Helpers.React
-open Fable.Helpers.React.Props
-open Fable.Import.React
+open Fable
+open Fable.React
+open Fable.React.Props
 open ReactHooksSample.Bindings
+open Browser.Types
 
 let useInputValue (initialValue : string) =
     let (value, setValue) = useState (initialValue)
-    let onChange (e : Fable.Import.React.FormEvent) =
+    let onChange (e : Event) =
         let value : string = e.target?value
         setValue (value)
 
@@ -21,7 +22,7 @@ type FormProps = { OnSubmit : string -> unit }
 let formComponent (props : FormProps) =
     let (value, onChange, resetValue) = useInputValue ""
 
-    let onSubmit (ev : FormEvent) =
+    let onSubmit (ev : Event) =
         ev.preventDefault()
         props.OnSubmit(value)
         resetValue()
